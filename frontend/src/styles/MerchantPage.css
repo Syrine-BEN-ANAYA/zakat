@@ -1,0 +1,404 @@
+/* ============================================
+   MERCHANT PAGE – STYLE COHÉRENT
+   ============================================ */
+:root {
+  --green-dark: #0d3b1e;
+  --green-mid: #1a6b3a;
+  --gold: #d4af37;
+  --gold-light: #ecd69a;
+  --cream: #fcf9f2;
+  --red: #b33c3c;
+  --red-light: #fbe8e8;
+  --amber: #c49a2b;
+  --amber-light: #f8f0d8;
+  --green-priority: #2a7a3a;
+  --green-priority-light: #e8f5e8;
+}
+
+.merchant-container {
+  padding: 1.5rem 2rem;
+  background: var(--cream);
+  min-height: 100%;
+}
+
+/* ===== EN-TÊTE ===== */
+.merchant-header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--gold-light);
+  padding-bottom: 1.2rem;
+  position: relative;
+}
+
+.merchant-header::after {
+  content: '✦ ✦ ✦';
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  padding: 0 16px;
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 6px;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-ornament {
+  font-size: 22px;
+  color: var(--gold);
+}
+
+.merchant-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin: 0;
+}
+
+.merchant-header h1::before {
+  content: '✦ ';
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.header-subtitle {
+  color: #5a6a5a;
+  font-size: 14px;
+  margin-top: 0.3rem;
+  margin-right: 40px;
+}
+
+/* ===== GRILLE ===== */
+.merchant-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== CARTE PORTEFEUILLE ===== */
+.wallet-section,
+.settlements-section {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  padding: 1.8rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ede8dc;
+  padding-bottom: 0.8rem;
+}
+
+.card-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin: 0;
+}
+
+.card-header h2::before {
+  content: '✦ ';
+  color: var(--gold);
+}
+
+.badge {
+  padding: 0.2rem 0.8rem;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--green-priority-light);
+  color: var(--green-priority);
+}
+
+/* ===== MONTANT DU PORTEFEUILLE ===== */
+.wallet-amount {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--gold);
+  text-align: center;
+  padding: 0.5rem 0;
+  background: var(--cream);
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.wallet-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.wallet-details p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #5a6a5a;
+  margin: 0;
+  padding: 0.3rem 0;
+  border-bottom: 1px dashed #ede8dc;
+}
+
+.wallet-details p:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: #7a8a7a;
+}
+
+.wallet-details strong {
+  color: var(--green-dark);
+}
+
+/* ===== BOUTON CONFIRMER ===== */
+.btn-confirm {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(145deg, var(--gold), #b8941e);
+  color: #1a3a1a;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+}
+
+.btn-confirm:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+}
+
+.btn-icon {
+  font-size: 18px;
+}
+
+/* ===== CARTES DE RÈGLEMENT ===== */
+.settlement-cards {
+  display: flex;
+  gap: 1.5rem;
+  height: 100%;
+  align-items: center;
+}
+
+.settlement-card {
+  flex: 1;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #ddd8cc;
+  transition: transform 0.2s;
+}
+
+.settlement-card:hover {
+  transform: translateY(-4px);
+}
+
+.settlement-card.pending {
+  background: var(--amber-light);
+  border-color: var(--amber);
+}
+
+.settlement-card.paid {
+  background: var(--green-priority-light);
+  border-color: var(--green-priority);
+}
+
+.settlement-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5a5a4a;
+  margin-bottom: 0.3rem;
+}
+
+.settlement-amount {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--green-dark);
+}
+
+.settlement-border {
+  width: 30px;
+  height: 2px;
+  background: var(--gold-light);
+  margin: 0.5rem auto 0;
+  border-radius: 4px;
+}
+
+/* ===== SECTION FACTURES ===== */
+.invoices-section {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  padding: 1.8rem;
+}
+
+.invoices-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ede8dc;
+  padding-bottom: 0.8rem;
+}
+
+.invoices-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin: 0;
+}
+
+.invoices-header h2::before {
+  content: '✦ ';
+  color: var(--gold);
+}
+
+.btn-export {
+  padding: 0.4rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--gold);
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--green-dark);
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-export:hover {
+  background: var(--gold-light);
+}
+
+.export-icon {
+  font-size: 14px;
+  color: var(--gold);
+}
+
+/* ===== LISTE DES FACTURES ===== */
+.invoices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.invoice-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background: var(--cream);
+  border-radius: 12px;
+  border-right: 4px solid var(--gold-light);
+  transition: background 0.2s;
+}
+
+.invoice-item:hover {
+  background: #f6f1e6;
+}
+
+.invoice-item.pending {
+  border-right-color: var(--amber);
+}
+
+.invoice-item.paid {
+  border-right-color: var(--green-priority);
+}
+
+.invoice-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.invoice-merchant {
+  font-weight: 600;
+  color: var(--green-dark);
+  font-size: 15px;
+}
+
+.invoice-amount {
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+  padding: 0.1rem 0.8rem;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+.invoice-status {
+  padding: 0.2rem 0.8rem;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-معلقة {
+  background: var(--amber-light);
+  color: var(--amber);
+}
+
+.status-مسددة {
+  background: var(--green-priority-light);
+  color: var(--green-priority);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .merchant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .settlement-cards {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .merchant-container {
+    padding: 1rem;
+  }
+
+  .header-title h1 {
+    font-size: 20px;
+  }
+
+  .wallet-amount {
+    font-size: 32px;
+  }
+
+  .invoice-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .invoice-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

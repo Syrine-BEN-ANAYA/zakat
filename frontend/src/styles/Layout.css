@@ -1,0 +1,23 @@
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  background: var(--cream);
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* Pour sidebar à droite (RTL) – largeur de la sidebar = 260px */
+  margin-right: 260px;
+  /* Pour sidebar à gauche (LTR) – décommentez celle-ci et commentez l'autre */
+  /* margin-left: 260px; */
+  min-height: 100vh;
+}
+
+.content-area {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Pas besoin de modifier Footer.css, car le footer hérite de la marge du parent */

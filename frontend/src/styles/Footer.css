@@ -1,0 +1,25 @@
+.footer {
+  background: white;
+  border-top: 2px solid var(--gold-light);
+  padding: 1rem 2rem;
+  /* margin-top: auto;  -- supprimez cette ligne pour éviter un comportement indésirable */
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 13px;
+  color: #5a6a5a;
+}
+
+.footer-ornament {
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.footer-content p {
+  margin: 0;
+}

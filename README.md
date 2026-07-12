@@ -1,131 +1,130 @@
-Moeen Al-Zaki Intelligent System V12.0 – Technical Documentation
-Enterprise Resource Planning (ERP) Frontend for Zakat Social Aid Management
-1. System Overview
-The Moeen Al-Zaki V12.0 is a complete frontend ERP solution designed for Lajnat Al-Zakat (Wilayat Al-Suwaiq). It provides a full-featured, RTL‑compliant interface for managing social aid distribution, family registration, emergency assistance, merchant payments, accounting, and intelligent distribution workflows. The system is built with React and uses mock data for demonstration, but it is engineered for seamless integration with any backend (Google Apps Script, REST API, Firebase, etc.).
+# نظام الزكاة الذكي | Smart Zakat Management System
 
-2. File Structure & Pages
-The frontend consists of 7 main pages, each implemented as a functional React component with its own CSS module.
+<div align="center">
 
-Page	File Name	Purpose
-Login	LoginPage.jsx + LoginPage.css	Secure authentication with role‑based access (8 roles), session timeout display (24h), and responsive RTL layout.
-Dashboard	DashboardPage.jsx + DashboardPage.css	Executive overview with 5 KPI cards, recent activity timeline, priority‑coded alerts, and real‑time mock metrics (families, total spending, pending parcels, elderly, urgent cases).
-Family Registry	FamiliesPage.jsx + FamiliesPage.css	Complete table of beneficiary families with search, priority filtering, inline editing, and import/export actions. Columns: ID, representative name, student count, per‑person share, net total, priority level, and action buttons.
-Intelligent Distribution	DistributionPage.jsx + DistributionPage.css	Automated distribution engine supporting three programmes (school scholarships, food baskets, bank transfers). Includes an interactive delivery station, parcel tracking, and delivery status management.
-Merchant Portal	MerchantPage.jsx + MerchantPage.css	Wallet balance consultation, invoice processing, transaction history, debit confirmation, and Excel export of merchant invoices.
-Accounting	AccountingPage.jsx + AccountingPage.css	Multi‑account dashboard (4 main accounts: bank, cash, stock value, total assets), inter‑account transfers, expense recording, stock management, and document preview.
-Emergency Aid	EmergencyPage.jsx + EmergencyPage.css	Emergency request system with a 3‑level approval workflow, user permission management, and a complete audit trail with alerts.
-3. Design System & UI Standards
-3.1 Color Palette
-Primary (Actions): #378ADD (blue)
+**A unified digital platform for managing zakat committee operations — families, distributions, wallets, accounting, and emergency aid approvals.**
 
-Success (Low priority, positive status): #639922 (green)
+**منصة رقمية موحّدة لإدارة عمليات لجنة الزكاة — الأسر، التوزيع، المحافظ، المحاسبة، والمساعدات العاجلة.**
 
-Warning (Medium priority, attention): #BA7517 (amber)
+🔗 **[Live Demo](https://zakat-navy.vercel.app/)**
 
-Danger (High priority, critical): #E24B4A (red)
+</div>
 
-Neutral (Text & background): #999, #666, #f9f9f9
+---
 
-3.2 Typography
-Headings: 24–28px / 700 weight
+## 📖 Overview
 
-Subheadings: 16–18px / 600 weight
+Smart Zakat is a full Arabic (RTL) React-based ERP designed for zakat committees to digitize the entire beneficiary lifecycle — from family registration and priority scoring, to fund distribution, merchant wallet settlements, financial accounting, and emergency aid requiring multi-level approval.
 
-Body: 13–14px / 400 weight
+---
 
-Direction: RTL (Right‑to‑Left) – fully localised for Arabic.
+## ✨ Features
 
-3.3 Spacing & Layout
-Padding: 1rem, 1.5rem, 2rem
+### 🔐 Secure Login
+Arabic RTL authentication screen with committee branding and secure credential entry.
 
-Gaps: 0.75rem, 1rem, 1.5rem, 2rem
+### 📊 Executive Dashboard
+- Real-time KPIs: registered families, total expenses, pending parcels, senior citizens
+- Family growth trends (line chart), priority distribution (pie chart), expense breakdown by category (bar chart)
+- Recent activity timeline and priority-level legend
+- Printable reports
 
-Border Radius: 6px (small), 8px (medium), 12px (cards)
+### 👨‍👩‍👧‍👦 Families Registry
+- Full-text search by civil ID, name, or phone
+- Priority filtering (Critical / Medium / Self-sufficient)
+- Per-family financial details: individual share, dependents, net entitlement
+- Record editing and history logs
 
-All components are fully responsive with breakpoints at 1024px, 768px, and <768px.
+### 📦 Distribution Management
+Tracks and manages the disbursement of aid to registered families with priority-based views.
 
-3.4 Component Architecture
-Functional components with useState for local state management.
+### 💳 Merchant Portal
+- Digital wallet balance lookup per beneficiary family
+- Invoice deduction and confirmation workflow
+- Settlement summary (pending vs. paid)
+- Recent invoice list with status tracking and Excel export
 
-No external state libraries – mock data is embedded in each component.
+### 💰 Accounting & Expenses
+- Consolidated view of bank accounts, cash treasury, and inventory value
+- Inter-account transfers
+- Expense recording by category (stationery, utilities, transport) with payment method and notes
+- Physical inventory management (items, quantities, unit pricing)
 
-CSS is scoped per page (no global styles), ensuring maintainability.
+### 🚨 Emergency Aid & Governance
+- Emergency assistance requests with triple-approval workflow (Manager → Deputy → Member)
+- User & role management (System Admin, Accountant, Merchant Center)
+- Full audit trail / activity log with printable reports
 
-All layouts are built with CSS Flexbox/Grid and are ARIA‑friendly.
+---
 
-4. Data Models (Mock Structures)
-The system uses the following representative data structures:
+## 🖥️ Tech Stack
 
-jsx
-// KPI Stat
-const stat = {
-  label: 'Families',       // Arabic or English label
-  value: '1,284',          // Formatted number
-  note: '+12 this month',  // Trend indicator
-  color: 'blue'            // semantic colour class
-};
+| Layer | Technology |
+|---|---|
+| Framework | React 18 |
+| Routing | React Router DOM 6 |
+| Charts | Recharts 3 |
+| Icons | Font Awesome (React) |
+| Tooling | Create React App (react-scripts 5) |
+| Linting | ESLint (react-app config) |
 
-// Family Record
-const family = {
-  id: '104568923',
-  name: 'سالم البلوشي',
-  priority: 'قصوى',        // High
-  students: 3,
-  share: '32.400',         // per person
-  total: '97.200',
-  // ... additional fields
-};
-All pages use static mock data to illustrate functionality; they are designed to be easily replaced with real API calls.
+---
 
-5. Routing & Integration
-The application is built for React Router v6. A sample App.jsx route configuration is provided:
+## 📂 Pages
 
-jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import DashboardPage from './pages/DashboardPage';
-// ... other imports
+| Page | File | Description |
+|---|---|---|
+| Login | `LoginPage.jsx` | Secure authentication screen |
+| Dashboard | `DashboardPage.jsx` | Executive analytics & KPIs |
+| Families | `FamiliesPage.jsx` | Beneficiary family registry |
+| Distribution | `DistributionPage.jsx` | Aid distribution management |
+| Accounting | `AccountingPage.jsx` | Accounts, transfers, expenses, inventory |
+| Merchant | `MerchantPage.jsx` | Merchant wallet & invoice settlements |
+| Emergency | `EmergencyPage.jsx` | Emergency aid, users & permissions, audit log |
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="/families" element={<FamiliesPage />} />
-        <Route path="/distribution" element={<DistributionPage />} />
-        <Route path="/merchant" element={<MerchantPage />} />
-        <Route path="/accounting" element={<AccountingPage />} />
-        <Route path="/emergency" element={<EmergencyPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-6. Backend Integration Roadmap
-The frontend is backend‑agnostic. It can be connected to:
+---
 
-Google Apps Script (via fetch to a deployed web app)
+## 🚀 Getting Started
 
-RESTful API (Node.js, PHP, Python, etc.)
+### Prerequisites
+- Node.js ≥ 16
+- npm or yarn
 
-Firebase or any BaaS
+### Installation
 
-Recommended steps for integration:
+```bash
+git clone <repository-url>
+cd zakat-erp-system
+npm install
+```
 
-Replace mock data with useEffect and fetch() calls to API endpoints.
+### Available Scripts
 
-Implement authentication using JWT or session cookies.
+```bash
+npm start      # Run the app in development mode
+npm run build  # Build for production
+npm test       # Run tests
+npm run lint   # Lint the source code
+```
 
-Add form validation and error handling.
+The app will be available at `http://localhost:3000`.
 
-Use environment variables for API base URLs.
+---
 
-7. Deployment & Build
-Build Tool: Vite (or Create React App – both supported)
+## 🌐 Demo
 
-Production Build: npm run build generates optimised static files.
+Explore the live version here: **[https://zakat-navy.vercel.app/](https://zakat-navy.vercel.app/)**
 
-Deployment: Can be deployed to Netlify, Vercel, GitHub Pages, or any static hosting.
+---
 
-8. License & Use
-This frontend is provided as a demonstration and base for the Lajnat Al-Zakat internal ERP. All design assets and code are proprietary but can be adapted for non‑commercial use within the Zakat committee.
+## 📝 License
+
+This project is proprietary and intended for internal committee use unless otherwise specified.
+
+---
+
+<div align="center">
+
+**نظام الزكاة الذكي — لجنة مسقط**
+
+</div>

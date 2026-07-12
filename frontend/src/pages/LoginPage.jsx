@@ -55,7 +55,7 @@ function LoginPage() {
         {/* ===== PIED DE PAGE (description) ===== */}
         <div className="login-description">
           <div className="gold-line"></div>
-          <p className="highlight">نظام الزكاة الذكي – لجنة السويق</p>
+          <p className="highlight">نظام الزكاة الذكي – لجنة مسقط</p>
         </div>
       </div>
     </div>

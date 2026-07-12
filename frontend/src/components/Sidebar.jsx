@@ -19,7 +19,7 @@ function Sidebar() {
         <div className="brand-icon">◈</div>
                 <img src={zakatLogo} alt="ZAKAT" className="sidebar-logo" />
 
-        <h2>نظام مُعين</h2>
+        <h2>نظام زكاة</h2>
         <p>الذكي</p>
       </div>
       <nav className="sidebar-nav">

@@ -1,230 +1,90 @@
-# نظام مُعين الذكي V12.0 - Structure des fichiers
+Moeen Al-Zaki Intelligent System V12.0 – Technical Documentation
+Enterprise Resource Planning (ERP) Frontend for Zakat Social Aid Management
+1. System Overview
+The Moeen Al-Zaki V12.0 is a complete frontend ERP solution designed for Lajnat Al-Zakat (Wilayat Al-Suwaiq). It provides a full-featured, RTL‑compliant interface for managing social aid distribution, family registration, emergency assistance, merchant payments, accounting, and intelligent distribution workflows. The system is built with React and uses mock data for demonstration, but it is engineered for seamless integration with any backend (Google Apps Script, REST API, Firebase, etc.).
 
-## 📋 Vue d'ensemble
-Ceci est une implémentation complète d'une interface ERP Frontend pour la gestion des aides sociales de la Zakat. Le système se compose de 7 pages avec une interface complète RTL en arabe.
+2. File Structure & Pages
+The frontend consists of 7 main pages, each implemented as a functional React component with its own CSS module.
 
-## 📁 Structure des fichiers
+Page	File Name	Purpose
+Login	LoginPage.jsx + LoginPage.css	Secure authentication with role‑based access (8 roles), session timeout display (24h), and responsive RTL layout.
+Dashboard	DashboardPage.jsx + DashboardPage.css	Executive overview with 5 KPI cards, recent activity timeline, priority‑coded alerts, and real‑time mock metrics (families, total spending, pending parcels, elderly, urgent cases).
+Family Registry	FamiliesPage.jsx + FamiliesPage.css	Complete table of beneficiary families with search, priority filtering, inline editing, and import/export actions. Columns: ID, representative name, student count, per‑person share, net total, priority level, and action buttons.
+Intelligent Distribution	DistributionPage.jsx + DistributionPage.css	Automated distribution engine supporting three programmes (school scholarships, food baskets, bank transfers). Includes an interactive delivery station, parcel tracking, and delivery status management.
+Merchant Portal	MerchantPage.jsx + MerchantPage.css	Wallet balance consultation, invoice processing, transaction history, debit confirmation, and Excel export of merchant invoices.
+Accounting	AccountingPage.jsx + AccountingPage.css	Multi‑account dashboard (4 main accounts: bank, cash, stock value, total assets), inter‑account transfers, expense recording, stock management, and document preview.
+Emergency Aid	EmergencyPage.jsx + EmergencyPage.css	Emergency request system with a 3‑level approval workflow, user permission management, and a complete audit trail with alerts.
+3. Design System & UI Standards
+3.1 Color Palette
+Primary (Actions): #378ADD (blue)
 
-### 1. Page de Connexion
-**Fichiers:** 
-- `LoginPage.jsx` - Composant React
-- `LoginPage.css` - Feuille de style
+Success (Low priority, positive status): #639922 (green)
 
-**Fonctionnalités:**
-- Authentification sécurisée
-- Affichage du timeout de session (24h)
-- Support des rôles multiples (8 rôles)
-- Design responsive et RTL
+Warning (Medium priority, attention): #BA7517 (amber)
 
----
+Danger (High priority, critical): #E24B4A (red)
 
-### 2. Tableau de Bord (Dashboard)
-**Fichiers:**
-- `DashboardPage.jsx` - Composant React
-- `DashboardPage.css` - Feuille de style
+Neutral (Text & background): #999, #666, #f9f9f9
 
-**Fonctionnalités:**
-- 5 cartes de statistiques avec indicateurs visuels
-- Timeline des activités récentes
-- Carte des priorités avec code couleur
-- Données en temps réel simulées
+3.2 Typography
+Headings: 24–28px / 700 weight
 
-**Métriques affichées:**
-- Nombre de familles (1,284)
-- Total des dépenses (48.720 ر.ع)
-- Colis en attente (37)
-- Personnes âgées (214)
-- Cas urgents (86)
+Subheadings: 16–18px / 600 weight
 
----
+Body: 13–14px / 400 weight
 
-### 3. Registre des Familles
-**Fichiers:**
-- `FamiliesPage.jsx` - Composant React
-- `FamiliesPage.css` - Feuille de style
+Direction: RTL (Right‑to‑Left) – fully localised for Arabic.
 
-**Fonctionnalités:**
-- Tableau complet des familles bénéficiaires
-- Recherche et filtrage par priorité
-- Actions d'édition et consultation
-- Code couleur pour les niveaux de priorité
-- Boutons d'import et d'enregistrement
+3.3 Spacing & Layout
+Padding: 1rem, 1.5rem, 2rem
 
-**Colonnes du tableau:**
-- Numéro d'identité
-- Nom du représentant
-- Nombre d'étudiants
-- Part par personne
-- Total net
-- Niveau de priorité
-- Actions
+Gaps: 0.75rem, 1rem, 1.5rem, 2rem
 
----
+Border Radius: 6px (small), 8px (medium), 12px (cards)
 
-### 4. Distribution Intelligente
-**Fichiers:**
-- `DistributionPage.jsx` - Composant React
-- `DistributionPage.css` - Feuille de style
+All components are fully responsive with breakpoints at 1024px, 768px, and <768px.
 
-**Fonctionnalités:**
-- Moteur de distribution automatique
-- Sélection des programmes (bourses scolaires, paniers alimentaires, virements)
-- Station de livraison interactive
-- Suivi des colis en attente
-- Statuts de livraison multiples
+3.4 Component Architecture
+Functional components with useState for local state management.
 
-**Programmes disponibles:**
-- Bourses scolaires (35.000 ر.ع)
-- Paniers alimentaires (50.000 ر.ع)
-- Virements bancaires (flexible)
+No external state libraries – mock data is embedded in each component.
 
----
+CSS is scoped per page (no global styles), ensuring maintainability.
 
-### 5. Portail Marchand
-**Fichiers:**
-- `MerchantPage.jsx` - Composant React
-- `MerchantPage.css` - Feuille de style
+All layouts are built with CSS Flexbox/Grid and are ARIA‑friendly.
 
-**Fonctionnalités:**
-- Consultation du solde des portefeuilles
-- Traitement des factures marchands
-- Historique des transactions
-- Confirmation de débits
-- Export Excel des factures
+4. Data Models (Mock Structures)
+The system uses the following representative data structures:
 
-**Sections:**
-- Portefeuille avec solde et date d'expiration
-- Résumé des règlements (en attente/payés)
-- Liste complète des factures
-
----
-
-### 6. Comptabilité
-**Fichiers:**
-- `AccountingPage.jsx` - Composant React
-- `AccountingPage.css` - Feuille de style
-
-**Fonctionnalités:**
-- Dashboard des comptes (4 comptes principaux)
-- Transferts entre comptes
-- Enregistrement des dépenses
-- Gestion du stock
-- Prévisualisation des documents
-
-**Comptes gérés:**
-- Comptes bancaires (126,420 ر.ع)
-- Trésorerie (8,940 ر.ع)
-- Valeur du stock (22,300 ر.ع)
-- Total actifs (157,660 ر.ع)
-
----
-
-### 7. Aides d'Urgence
-**Fichiers:**
-- `EmergencyPage.jsx` - Composant React
-- `EmergencyPage.css` - Feuille de style
-
-**Fonctionnalités:**
-- Système de requêtes d'aide d'urgence
-- Approbations multiples (3 niveaux)
-- Gestion des utilisateurs
-- Audit trail complet
-- Tabs pour navigation entre sections
-
-**Sections:**
-1. Demandes d'aide d'urgence (250.000 ر.ع max)
-2. Permissions et utilisateurs (3 rôles disponibles)
-3. Journal d'audit et alertes
-
----
-
-## 🎨 Design System
-
-### Couleurs Sémantiques
-- **Primaire:** #378ADD (bleu) - Actions principales
-- **Succès:** #639922 (vert) - Statut positif, priorité basse
-- **Alerte:** #BA7517 (ambre) - Attention, priorité moyenne
-- **Erreur:** #E24B4A (rouge) - Critique, priorité haute
-- **Gris:** #999 / #666 - Texte secondaire
-
-### Typographie
-- **Titres:** 24-28px, poids 700
-- **Sous-titres:** 16-18px, poids 600
-- **Corps:** 13-14px, poids 400
-- **Direction:** RTL (droite à gauche)
-
-### Espacement
-- Padding: 1rem, 1.5rem, 2rem
-- Gap: 0.75rem, 1rem, 1.5rem, 2rem
-- Border radius: 6px (petits éléments), 8px (modérés), 12px (cartes)
-
----
-
-## 🔄 Structure React
-
-### Composants
-Chaque page est un composant React fonctionnel avec:
-- Utilisation de `useState` pour la gestion d'état
-- Données simulées (mockup)
-- Pas de logique backend
-- Props passés directement aux enfants
-
-### Props typiques
-```jsx
-// Exemples de structures de données
+jsx
+// KPI Stat
 const stat = {
-  label: 'Familles',
-  value: '1,284',
-  note: '+12 ce mois',
-  color: 'blue'
-}
+  label: 'Families',       // Arabic or English label
+  value: '1,284',          // Formatted number
+  note: '+12 this month',  // Trend indicator
+  color: 'blue'            // semantic colour class
+};
 
+// Family Record
 const family = {
   id: '104568923',
   name: 'سالم البلوشي',
-  priority: 'قصوى',
-  share: '32.400'
-}
-```
+  priority: 'قصوى',        // High
+  students: 3,
+  share: '32.400',         // per person
+  total: '97.200',
+  // ... additional fields
+};
+All pages use static mock data to illustrate functionality; they are designed to be easily replaced with real API calls.
 
----
+5. Routing & Integration
+The application is built for React Router v6. A sample App.jsx route configuration is provided:
 
-## 📱 Responsive Design
-
-Tous les fichiers CSS incluent des media queries pour:
-- Desktop (1024px+)
-- Tablette (768px - 1023px)
-- Mobile (<768px)
-
----
-
-## 🚀 Installation
-
-### 1. Préparation
-```bash
-# Copier tous les fichiers JSX dans src/pages/
-# Copier tous les fichiers CSS dans src/styles/ ou dans le même répertoire
-
-# Arborescence recommandée:
-src/
-├── pages/
-│   ├── LoginPage.jsx
-│   ├── DashboardPage.jsx
-│   ├── FamiliesPage.jsx
-│   ├── DistributionPage.jsx
-│   ├── MerchantPage.jsx
-│   ├── AccountingPage.jsx
-│   ├── EmergencyPage.jsx
-│   └── (CSS files)
-└── App.jsx
-```
-
-### 2. Configuration des routes (App.jsx)
-```jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import LoginPage from './pages/LoginPage'
-import DashboardPage from './pages/DashboardPage'
-// ... imports des autres pages
+jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
+// ... other imports
 
 function App() {
   return (
@@ -239,31 +99,33 @@ function App() {
         <Route path="/emergency" element={<EmergencyPage />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
-```
+6. Backend Integration Roadmap
+The frontend is backend‑agnostic. It can be connected to:
 
----
+Google Apps Script (via fetch to a deployed web app)
 
-## 📝 Notes importantes
+RESTful API (Node.js, PHP, Python, etc.)
 
-### Frontend uniquement
-- Aucune logique de base de données
-- Aucune API backend
-- Aucune authentification réelle
-- Données simulées pour la démo
-- Prêt pour intégration avec Google Apps Script ou autres services
+Firebase or any BaaS
 
-### Prêt pour l'extension
-- Structure CSS modulaire
-- Noms de classes cohérents
-- Variables CSS pour les couleurs
-- Séparation claire composants/styles
-- Facile à intégrer avec des formulaires réels
+Recommended steps for integration:
 
----
+Replace mock data with useEffect and fetch() calls to API endpoints.
 
-## 📄 Licence
-Frontend pour système ERP - Lajnat Al-Zakat - Wilayat Al-Suwaiq
+Implement authentication using JWT or session cookies.
 
-Tous les éléments sont des images de démo. À adapter selon les besoins.
+Add form validation and error handling.
+
+Use environment variables for API base URLs.
+
+7. Deployment & Build
+Build Tool: Vite (or Create React App – both supported)
+
+Production Build: npm run build generates optimised static files.
+
+Deployment: Can be deployed to Netlify, Vercel, GitHub Pages, or any static hosting.
+
+8. License & Use
+This frontend is provided as a demonstration and base for the Lajnat Al-Zakat internal ERP. All design assets and code are proprietary but can be adapted for non‑commercial use within the Zakat committee.

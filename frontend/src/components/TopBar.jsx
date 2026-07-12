@@ -5,7 +5,7 @@ function TopBar({ user, onLogout }) {
     <header className="topbar">
       <div className="topbar-left">
         <span className="topbar-ornament">✦</span>
-        <h1>لجنة الزكاة – السويق</h1>
+        <h1>لجنة الزكاة – مسقط</h1>
       </div>
       <div className="topbar-right">
         <div className="user-info">

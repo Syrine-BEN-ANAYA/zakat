@@ -1,5 +1,5 @@
 /* ============================================
-   DASHBOARD PAGE – CONTENU SPÉCIFIQUE
+   DASHBOARD MODERNE - STYLE VERT/OR
    ============================================ */
 :root {
   --green-dark: #0d3b1e;
@@ -16,6 +16,9 @@
 .dashboard-page {
   direction: rtl;
   font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: var(--cream);
+  min-height: 100vh;
+  padding: 2.5rem;
 }
 
 /* ===== EN-TÊTE DE LA PAGE ===== */
@@ -77,7 +80,7 @@
 }
 
 .btn-print {
-  background: transparent;
+  background: rgba(212, 175, 55, 0.05);
   border: 2px solid var(--gold);
   color: var(--green-dark);
   padding: 10px 24px;
@@ -90,7 +93,6 @@
   align-items: center;
   gap: 10px;
   font-family: inherit;
-  background: rgba(212, 175, 55, 0.05);
 }
 
 .btn-print:hover {
@@ -173,14 +175,29 @@
   border-radius: 4px;
 }
 
-/* ===== GRILLE PRINCIPALE ===== */
+/* ===== GRILLES ET CARTES ===== */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
 .main-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.side-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
 /* ===== CARTES ===== */
+.chart-card,
 .activity-card,
 .priority-card {
   background: white;
@@ -191,6 +208,7 @@
   transition: transform 0.2s ease;
 }
 
+.chart-card:hover,
 .activity-card:hover,
 .priority-card:hover {
   transform: translateY(-3px);
@@ -338,37 +356,154 @@
   color: #5a5a5a;
 }
 
+/* ===== FOOTER STATS ===== */
+.footer-stats {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  box-shadow: 0 6px 20px var(--shadow);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.footer-stat-item {
+  padding: 0.5rem 0;
+}
+
+.footer-stat-label {
+  font-size: 13px;
+  color: #5a6a5a;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.footer-stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--green-dark);
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-grid {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 992px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .side-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-page {
+    padding: 1.5rem;
+  }
+
   .page-header {
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
   }
+
   .header-content h1 {
     font-size: 24px;
   }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
+
   .stat-value {
     font-size: 22px;
   }
+
+  .charts-grid,
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-page {
+    padding: 1rem;
+  }
+
+  .page-header {
+    padding: 0 0 1.5rem 0;
+  }
+
+  .page-header::after {
+    content: '';
+    display: none;
+  }
+
+  .header-content h1 {
+    font-size: 20px;
+  }
+
+  .header-subtitle {
+    font-size: 13px;
+  }
+
+  .btn-print {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .stat-card {
+    padding: 1.2rem 1rem 0.8rem;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .card-header h2 {
+    font-size: 16px;
+  }
+
   .timeline li {
     flex-wrap: wrap;
   }
+
   .timeline-date {
     width: 100%;
     text-align: left;
     margin-top: 2px;
+  }
+
+  .footer-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }

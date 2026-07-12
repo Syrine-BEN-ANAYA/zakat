@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import '../styles/LoginPage.css'
-import zakatLogo from '../assets/zakat-logo.png' // ← chemin vers votre image
+import zakatLogo from '../assets/zakat-logo.png'
 
 function LoginPage() {
   const [username, setUsername] = useState('')
@@ -9,9 +9,9 @@ function LoginPage() {
   return (
     <div className="login-container">
       <div className="login-wrapper">
+        {/* ===== CARTE PRINCIPALE ===== */}
         <div className="login-card">
           <div className="login-header">
-            {/* ===== LOGO (IMAGE) ===== */}
             <div className="logo-block">
               <img
                 src={zakatLogo}
@@ -50,17 +50,10 @@ function LoginPage() {
               تسجيل الدخول الآمن
             </button>
           </form>
-
-          <div className="login-info">
-            <p>صلاحية الجلسة: <strong>24 ساعة</strong></p>
-            <p>تحكم حسب الصلاحية: <strong>8 أدوار</strong></p>
-          </div>
         </div>
 
+        {/* ===== PIED DE PAGE (description) ===== */}
         <div className="login-description">
-          <div className="arabesque-pattern"></div>
-          <h2>واجهة <span></span> فقط</h2>
-          <p>الحقول والعناصر جاهزة للربط لاحقاً بدون منطق خلفي</p>
           <div className="gold-line"></div>
           <p className="highlight">نظام الزكاة الذكي – لجنة السويق</p>
         </div>

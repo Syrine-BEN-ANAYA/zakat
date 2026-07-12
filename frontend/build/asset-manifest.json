@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9cad45a5.css",
+    "main.js": "/static/js/main.e7bdddd4.js",
+    "static/media/zakat-logo.png": "/static/media/zakat-logo.696cac6b94569b21c574.png",
+    "index.html": "/index.html",
+    "main.9cad45a5.css.map": "/static/css/main.9cad45a5.css.map",
+    "main.e7bdddd4.js.map": "/static/js/main.e7bdddd4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9cad45a5.css",
+    "static/js/main.e7bdddd4.js"
+  ]
+}
